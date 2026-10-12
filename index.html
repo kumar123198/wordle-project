@@ -1,58 +1,27 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f7f8fc">
-  <meta name="description" content="A polished, quick-to-play Wordle-inspired word guessing game.">
-  <title>Wordle — Daily word puzzle</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-  <script src="game.js" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wordle Game</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="app-shell">
-    <header class="topbar">
-      <div class="brand" aria-label="Wordle home"><span class="brand-mark" aria-hidden="true">W</span><span>wordle</span></div>
-      <div class="topbar-note"><span class="live-dot" aria-hidden="true"></span> A little word break</div>
-    </header>
+  <main class="game-card">
+    <h1>Wordle Game</h1>
+    <p class="instructions">Guess the hidden 5-letter word in 6 tries.</p>
 
-    <section class="game-card" aria-labelledby="game-title">
-      <div class="eyebrow"><span>THE DAILY PUZZLE</span><span class="eyebrow-line"></span><span>NO. <span id="puzzle-number">001</span></span></div>
-      <div class="heading-row">
-        <div>
-          <h1 id="game-title">Wordle</h1>
-          <p class="subtitle">Find the hidden five-letter word.</p>
-        </div>
-        <div class="tries-badge" aria-live="polite"><span class="tries-number" id="tries-left">6</span><span>tries<br>left</span></div>
-      </div>
+    <div id="board" class="board" aria-label="Guess board"></div>
 
-      <div class="board" id="board" role="grid" aria-label="Wordle game board"></div>
-
-      <form class="guess-form" id="guess-form" autocomplete="off">
-        <label class="sr-only" for="guess-input">Your five-letter guess</label>
-        <div class="input-wrap">
-          <span class="input-icon" aria-hidden="true">✳</span>
-          <input id="guess-input" name="guess" type="text" maxlength="5" minlength="5" pattern="[A-Za-z]{5}" placeholder="Type a 5-letter word" autocapitalize="characters" spellcheck="false" aria-describedby="feedback">
-          <span class="input-count" id="input-count">0 / 5</span>
-        </div>
-        <button class="submit-button" id="submit-button" type="submit"><span>Submit guess</span><span aria-hidden="true">↗</span></button>
-      </form>
-
-      <p class="feedback" id="feedback" role="status" aria-live="polite">Your first guess is just a tap away.</p>
-
-      <div class="game-footer">
-        <div class="legend" aria-label="Tile color guide">
-          <span><i class="legend-dot correct"></i>Right spot</span>
-          <span><i class="legend-dot present"></i>In the word</span>
-          <span><i class="legend-dot absent"></i>Not in the word</span>
-        </div>
-        <button class="restart-button" id="restart-button" type="button" hidden>↻ <span>Play again</span></button>
-      </div>
-    </section>
-    <footer class="page-footer">A small daily challenge <span>·</span> Made for curious minds</footer>
+    <form id="guess-form" class="guess-form">
+      <label class="sr-only" for="guess-input">Your 5-letter guess</label>
+      <input id="guess-input" type="text" maxlength="5" autocomplete="off"
+        placeholder="Enter a word" aria-describedby="message">
+      <button id="submit-button" type="submit">Submit Guess</button>
+    </form>
+    <p id="message" class="message" aria-live="polite">Good luck!</p>
   </main>
+
+  <script src="script.js"></script>
 </body>
 </html>
